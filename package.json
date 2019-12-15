@@ -1,0 +1,19 @@
+{
+  "name": "fullstackkampnodejs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tugcehizir/FullStackKampNodeJs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tugcehizir/FullStackKampNodeJs/issues"
+  },
+  "homepage": "https://github.com/tugcehizir/FullStackKampNodeJs#readme"
+}
