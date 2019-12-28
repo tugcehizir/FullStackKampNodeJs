@@ -28,7 +28,8 @@
         function sendMessage() {
             socket.emit('message', doc.getElementById("input").value)
             socket.on('post-msg', (msg) => {doc.getElementById("list").innerHTML = (msg);})
-        }
+            socket.on('brd-msg', (msgg) => {console.log("broadcast" + msgg)})
+        }   
     })(window, document)
 </script>
 

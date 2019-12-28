@@ -13,6 +13,7 @@ io.on("connection", (socket) => {
     socket.on("message", (msg) => {
 
         io.emit('post-msg', msg);
+    socket.broadcast.emit('brd-msg', msg);
     })
 })
 http.listen(4000, () => console.log('sunucu ayakta'));
