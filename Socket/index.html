@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Socket IO</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <ul>
+        <li id="list"></li>
+    </ul>
+    <form class="send-message" action="#">
+        <div class="input-group mb-3" style="margin-top: 300px;">
+            <input type="text" class="form-control" id="input" placeholder="Message" aria-describedby="button-addon2">
+        </div>
+        <button type="submit" class="btn btn-primary">Gönder</button>
+    </form>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    //scope için kullanılan iife
+    (function (win, doc) {
+        var socket = win.io();
+        doc.querySelector('.send-message').onsubmit = sendMessage;
+        //id --> input
+        function sendMessage() {
+            socket.emit('message', doc.getElementById("input").value)
+            socket.on('post-msg', (msg) => {doc.getElementById("list").innerHTML = (msg);})
+        }
+    })(window, document)
+</script>
+
+</html>

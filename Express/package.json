@@ -2,9 +2,13 @@
   "name": "nodejs-camp-2019",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "debug": "/usr/local/bin/node --inspect-brk",
+    "start": "node app.js",
+    "test": "jest --no-cache --verbose",
+    "test:coverage": "jest --no-cache --verbose --coverage",
+    "test:debug": "npm run debug node_modules/jest/bin/jest.js -- --runInBand"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +16,13 @@
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/lib/parser/__tests__/parserTokenTester.js"
+    ]
   }
 }
